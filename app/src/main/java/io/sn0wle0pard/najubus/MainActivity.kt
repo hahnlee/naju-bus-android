@@ -10,9 +10,12 @@ import android.support.transition.Fade
 import android.support.transition.Transition
 import android.support.transition.Transition.TransitionListener
 import android.support.transition.TransitionManager
+import android.view.View
 
 import android.view.inputmethod.InputMethodManager
 import android.view.ViewGroup
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 
 import io.sn0wle0pard.najubus.search.SearchActivity
 import io.sn0wle0pard.najubus.transition.FadeInTransition
@@ -32,8 +35,12 @@ class MainActivity : AppCompatActivity() {
         toolBarMargin = resources.getDimensionPixelOffset(R.dimen.toolbar_margin)
         search_bar.setOnClickListener {
             showKeyboard()
+            searchBarContent.visibility = View.GONE
             transitionToSearch()
         }
+        val adView: AdView = adView
+        val adRequest: AdRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
     }
 
     override fun onResume() {
@@ -42,6 +49,8 @@ class MainActivity : AppCompatActivity() {
         val layoutParam: ViewGroup.MarginLayoutParams = search_bar.layoutParams as ViewGroup.MarginLayoutParams
         layoutParam.setMargins(toolBarMargin, toolBarMargin, toolBarMargin, toolBarMargin)
         search_bar.layoutParams = layoutParam
+        searchBarContent.visibility = View.VISIBLE
+        container.visibility = ViewGroup.VISIBLE
     }
 
     private fun hideKeyboard() {
