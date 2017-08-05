@@ -30,8 +30,8 @@ class BusArriveAdapter(val busArriveInfoList: List<BusArriveInfo>): RecyclerView
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val busArriveInfo = busArriveInfoList[position]
         holder.mLineName.text = busArriveInfo.lineName
-        holder.mLineInfo.text = "현재 정류장 ${busArriveInfo.busStopName}"
-        holder.mLineRemain.text = "${busArriveInfo.remainMin}분 후 도착예정 (${busArriveInfo.remainStop} 정류장 전)"
+        holder.mLineInfo.text = "${busArriveInfo.busStopName} (${busArriveInfo.remainStop} 정류장 전)"
+        holder.mLineRemain.text = "${busArriveInfo.remainMin}분 후 도착예정"
         holder.mAvatarView.setImageResource(R.drawable.ic_directions_bus_black_24dp)
     }
 
