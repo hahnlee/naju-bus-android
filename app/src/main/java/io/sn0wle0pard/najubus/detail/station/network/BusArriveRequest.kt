@@ -1,4 +1,4 @@
-package io.sn0wle0pard.najubus.detail.stop.network
+package io.sn0wle0pard.najubus.detail.station.network
 
 import io.reactivex.Observable
 import retrofit2.http.GET

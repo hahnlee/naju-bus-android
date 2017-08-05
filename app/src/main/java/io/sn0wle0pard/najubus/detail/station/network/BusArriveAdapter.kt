@@ -1,4 +1,4 @@
-package io.sn0wle0pard.najubus.detail.stop.network
+package io.sn0wle0pard.najubus.detail.station.network
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

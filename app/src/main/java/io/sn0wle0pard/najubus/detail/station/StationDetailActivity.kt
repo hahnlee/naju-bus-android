@@ -1,4 +1,4 @@
-package io.sn0wle0pard.najubus.detail.stop
+package io.sn0wle0pard.najubus.detail.station
 
 import android.os.Bundle
 import android.view.View
@@ -20,19 +20,19 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 import io.sn0wle0pard.najubus.R
-import io.sn0wle0pard.najubus.detail.stop.network.BusArriveAdapter
-import io.sn0wle0pard.najubus.detail.stop.network.BusArriveInfo
+import io.sn0wle0pard.najubus.detail.station.network.BusArriveAdapter
+import io.sn0wle0pard.najubus.detail.station.network.BusArriveInfo
 
 import kotlinx.android.synthetic.main.activity_stop_detail.*
 import kotlin.properties.Delegates
 
-class StopDetailActivity : AppCompatActivity(), OnMapReadyCallback {
+class StationDetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private var mBusStopID: Int = 0
     private var mBusStopName: String = ""
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
     private var mBusStopDir: String = ""
-    private var presenter: StopDetailPresenter by Delegates.notNull()
+    private var presenter: StationDetailPresenter by Delegates.notNull()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class StopDetailActivity : AppCompatActivity(), OnMapReadyCallback {
         // Set Map Fragment
         val mapFragment: SupportMapFragment = map as SupportMapFragment
         mapFragment.getMapAsync(this)
-        presenter = StopDetailPresenter(this)
+        presenter = StationDetailPresenter(this)
 
         // Get Data from intent
         val intent = intent

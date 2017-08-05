@@ -1,9 +1,9 @@
-package io.sn0wle0pard.najubus.search.stop
+package io.sn0wle0pard.najubus.search.station
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class StopInfo {
+class StationInfo {
     @SerializedName("BUSSTOP_NAME")
     @Expose
     var busStopName: String = ""

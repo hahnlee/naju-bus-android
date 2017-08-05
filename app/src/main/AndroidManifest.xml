@@ -23,7 +23,7 @@
             android:name=".search.SearchActivity"
             android:theme="@style/AppTheme.Search"
             android:windowSoftInputMode="stateVisible|adjustResize" />
-        <activity android:name=".detail.stop.StopDetailActivity" />
+        <activity android:name=".detail.station.StationDetailActivity" />
     </application>
 
 </manifest>

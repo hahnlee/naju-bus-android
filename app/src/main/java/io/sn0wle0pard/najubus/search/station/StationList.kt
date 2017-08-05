@@ -1,13 +1,12 @@
-package io.sn0wle0pard.najubus.detail.stop.network
+package io.sn0wle0pard.najubus.search.station
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class BusArriveInfoList {
-
+class StationList {
     @SerializedName("list")
     @Expose
-    var list: List<BusArriveInfo> = ArrayList<BusArriveInfo>()
+    var list: List<StationInfo> = ArrayList()
 
     @SerializedName("size")
     @Expose

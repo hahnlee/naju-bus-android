@@ -1,4 +1,4 @@
-package io.sn0wle0pard.najubus.search.stop
+package io.sn0wle0pard.najubus.search.station
 
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
@@ -9,10 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 
 import io.sn0wle0pard.najubus.R
-import io.sn0wle0pard.najubus.detail.stop.StopDetailActivity
+import io.sn0wle0pard.najubus.detail.station.StationDetailActivity
 
-class StopAdapter(val mSearchList: List<StopInfo>) :
-        RecyclerView.Adapter<StopAdapter.ViewHolder>() {
+class StationAdapter(val mSearchList: List<StationInfo>) :
+        RecyclerView.Adapter<StationAdapter.ViewHolder>() {
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val searchResultTitle: TextView = v.findViewById(R.id.search_result_title) as TextView
         val searchResultSubtitle: TextView = v.findViewById(R.id.search_result_subtitle) as TextView
@@ -26,7 +26,7 @@ class StopAdapter(val mSearchList: List<StopInfo>) :
                      latitude: Double, longitude: Double) {
             itemView.setOnClickListener {
                 val context = itemView.context
-                val intent = Intent(context, StopDetailActivity::class.java)
+                val intent = Intent(context, StationDetailActivity::class.java)
                 intent.putExtra("busStopID", busStopID)
                 intent.putExtra("busStopName", busStopName)
                 intent.putExtra("busStopDir", busStopDir)

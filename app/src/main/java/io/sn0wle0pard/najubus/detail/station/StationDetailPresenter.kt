@@ -1,7 +1,5 @@
-package io.sn0wle0pard.najubus.detail.stop
+package io.sn0wle0pard.najubus.detail.station
 
-import android.content.Context
-import android.support.v4.app.ActionBarDrawerToggle
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -13,11 +11,11 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-import io.sn0wle0pard.najubus.detail.stop.network.BusArriveRequest
+import io.sn0wle0pard.najubus.detail.station.network.BusArriveRequest
 import io.sn0wle0pard.najubus.model.StaredStation
 import kotlin.properties.Delegates
 
-class StopDetailPresenter(val view: StopDetailActivity) {
+class StationDetailPresenter(val view: StationDetailActivity) {
     private val mCompositeDisposable: CompositeDisposable = CompositeDisposable()
     private val observer: Observable<Int> = Observable.just(0)
     private var realm: Realm by Delegates.notNull()

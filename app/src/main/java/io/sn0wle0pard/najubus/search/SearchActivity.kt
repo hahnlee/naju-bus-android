@@ -17,9 +17,9 @@ import android.view.ViewTreeObserver
 
 import io.sn0wle0pard.najubus.R
 import io.sn0wle0pard.najubus.search.line.LineInfo
-import io.sn0wle0pard.najubus.search.stop.LineAdapter
-import io.sn0wle0pard.najubus.search.stop.StopAdapter
-import io.sn0wle0pard.najubus.search.stop.StopInfo
+import io.sn0wle0pard.najubus.search.station.LineAdapter
+import io.sn0wle0pard.najubus.search.station.StationAdapter
+import io.sn0wle0pard.najubus.search.station.StationInfo
 import io.sn0wle0pard.najubus.transition.FadeInTransition
 
 import kotlinx.android.synthetic.main.activity_search.*
@@ -127,8 +127,8 @@ class SearchActivity : AppCompatActivity() {
     }
 
 
-    fun setStopRecyclerView(searchResult: List<StopInfo>) {
-        val adapter: StopAdapter = StopAdapter(searchResult)
+    fun setStopRecyclerView(searchResult: List<StationInfo>) {
+        val adapter: StationAdapter = StationAdapter(searchResult)
         search_result.adapter = adapter
         emptyText.visibility = View.GONE
         loadSearchResult.visibility = View.GONE

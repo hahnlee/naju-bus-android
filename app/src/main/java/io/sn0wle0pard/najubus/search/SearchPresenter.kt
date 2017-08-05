@@ -4,7 +4,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.sn0wle0pard.najubus.search.line.LineRequest
-import io.sn0wle0pard.najubus.search.stop.StopRequest
+import io.sn0wle0pard.najubus.search.station.StationRequest
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -23,7 +23,7 @@ class SearchPresenter(val view: SearchActivity) {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    val busStopRequest: StopRequest = retrofit.create(StopRequest::class.java)
+    val busStationRequest: StationRequest = retrofit.create(StationRequest::class.java)
     val busLineRequest: LineRequest = retrofit.create(LineRequest::class.java)
 
     val compositeSubscription: CompositeDisposable = CompositeDisposable()
@@ -45,15 +45,15 @@ class SearchPresenter(val view: SearchActivity) {
         view.showLoad()
         if (search == 0) {
             compositeSubscription.add(
-                    busStopRequest.searchBusStop(query)
+                    busStationRequest.searchBusStation(query)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe ({
                         // On Complete
                         // Show list only list is not empty
-                        stopList ->
-                        if (stopList.size>0) {
-                            view.setStopRecyclerView(stopList.list)
+                        stationList ->
+                        if (stationList.size>0) {
+                            view.setStopRecyclerView(stationList.list)
                         }
                         else {
                             view.showEmpty()
