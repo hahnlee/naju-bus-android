@@ -51,6 +51,7 @@ class StationDetailPresenter(val view: StationDetailActivity) {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(
                 {
+                    // On Next
                     busArriveInfoList ->
                         if (busArriveInfoList.list.isEmpty()) {
                             view.onEmpty()
@@ -59,10 +60,14 @@ class StationDetailPresenter(val view: StationDetailActivity) {
                         }
                 },
                 {
+                    // On Error
                 })
         )
     }
 
+    /**
+     * click fab button save or delete db
+     * */
     fun clickFabButton(lineID: Int, lineName: String, lineDir: String, latitude: Double, longitude: Double) {
         realm.beginTransaction()
         if (isStared) {
